@@ -33,7 +33,7 @@ Support translation of pseudo instructions(e.g., j, mv)
 User Interface could be built
 
 ## Contents
-demo.c : The main assembler code responsible for translating assembly instructions into machine code.
+demo2.c : The main assembler code responsible for translating assembly instructions into machine code.
 input.s: A sample file containing RISC-V assembly instructions to be processed by the assembler.
 output.hex: The output file that contains the translated machine code in hexadecimal format.
 
