@@ -3,12 +3,18 @@
 ## CONTENTS 
 This file has been divided into the following sections for easy reference:
 - Project Description
+- What the Application Does
+- Technologies Used
 - Hardware requirements to run this program.
 - Operating System and its requirements.
+- Installation of RIPES Simulator
 - Installation of the C compiler
-- Input file
+- Contents of the folder
 - About the program
-- Executing the program.
+- Executing the program
+- Prerequisites
+- Getting Help
+
 
 
 ## Project Description
@@ -25,6 +31,10 @@ The assembler takes RISC-V assembly instructions as input and converts them into
 
 By generating machine code, the assembler allows users to see how assembly instructions are represented in binary, facilitating a deeper understanding of the RISC-V architecture.
 
+## Technologies Used
+- C Language: Used for writing the assembler code to convert assembly instructions into machine code.
+- RISC-V Instruction Set Architecture: The target architecture for which the assembly code is written and translated.
+
 ## Hardware requirements to compile and run this program
 - A good processor with a minimum quantity ram and a minimum harddisk space is enough to run this program. 
 Actually this program will not consume much of memory and the harddisk space.
@@ -34,6 +44,17 @@ Actually this program will not consume much of memory and the harddisk space.
 ## Operating System and its requirements
 This code can run in any operating system as long as that operating system has a C compiler installed. 
 The gcc compiler was used during the development phase. 
+The RIPES Simulator can be installed to check the accuracy of the translated machine code.
+
+## Installation of RIPES Simulator
+This is required only for you to check the hexadecimal machine code, if its correct.
+Ripes is a visual computer architecture simulator built around the RISC-V ISA.
+As we have been adviced to use RIPES as the assembly code editor, there are also other code editors like VSCode you can use.
+
+To install RIPES, click on the [RIPES](https://github.com/mortbopet/Ripes/releases)
+
+Under the ASSETS Section of the recent version, select the package to be installed based on the OS you are working on.
+
 
 ## Installation of the C Compiler
 This code was written in C and the Windows operating system was used during the development. 
@@ -55,11 +76,20 @@ Add the gcc to the windows environment variable so that the gcc command can be i
 - output.hex: The output file that contains the translated machine code in hexadecimal format.
 To know the details of each function, variables and the flow of code execution, refer the report.pdf
 
+## About the Code
+
+This project is structured into several key components to ensure clarity and modularity. 
+The main function serves as the entry point, which opens the process_instr function which reads the input assembly file line by line.
+Each line is then parsed to identify the instruction format or a labelled instruction.
+Based on the format, the relevant function is called to handle the encoding process. For example, process_instructionR() is for handling the R-Format instructions.
+
+Additionally, error checking is integrated at each step to ensure that the input follows the correct format, and the encoded machine code is then written to the output file.
+
 ## Executing the program
 In the command prompt, type the a.out or the executable file name to execute this program. 
 Upon successful execution of the program, you will get an output file named output.hex with the translated machine codes in hexadecimal format.
 
-## Prerequisites
+## Prerequisite Knowledge
 - Instruction Set Architecture (ISA): Familiarity with RISC-V or the specific ISA you're working with.
 - Assembly Language: Knowledge of writing and understanding assembly language instructions.
 - Binary and Hexadecimal Notation: Ability to work with and convert between binary, hexadecimal, and decimal systems.
@@ -223,3 +253,6 @@ Upon successful execution of the program, you will get an output file named outp
 - imm[20|10:1|11|19:12]: The concatenated 20-bit immediate value used for jumps.
 - rd: A 5-bit field representing the destination register.
 - opcode: A 7-bit operation code that specifies the type of instruction. Here, J format: 1101111
+
+## Getting Help
+If you are stuck and need help in understanding the code as well as for executing this C program, you may please write to the email address: co23btech11003@iith.ac.in . Kindly provide with details of the exact issues that you are facing to get the correct guidence.
