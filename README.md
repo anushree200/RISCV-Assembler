@@ -20,8 +20,8 @@ The assembler takes RISC-V assembly instructions as input and converts them into
 - I-type instructions (addi, andi, ori, xori, slli, srli, srai, ld, lw, lh, lb, lwu, lhu, lbu)
 - S-type instructions (sd, sw, sh, sb, jalr)
 - B-type instructions (beq, bne, blt, bge, bltu, bgeu)
-- U-type instructions(lui)
-- J-type instructions(jal)
+- U-type instructions (lui)
+- J-type instructions (jal)
 
 By generating machine code, the assembler allows users to see how assembly instructions are represented in binary, facilitating a deeper understanding of the RISC-V architecture.
 
