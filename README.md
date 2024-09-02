@@ -53,20 +53,55 @@ To know the details of each function, variables and the flow of code execution, 
 
 ### R-Format
 
-  31       25 24   20 19   15 14      12 11    7 6        0
- |-----------|-------|-------|----------|-------|----------|
- | `funct7`  | `rs2` | `rs1` | `funct3` | `rd`  | `opcode` |
+<table>
+  <tr>
+    <th>31-25</th>
+    <th>24-20</th>
+    <th>19-15</th>
+    <th>14-12</th>
+    <th>11-7</th>
+    <th>6-0</th>
+  </tr>
+  <tr>
+     <td>`funct7`</td>
+     <td>`rs2`</td>
+     <td>`rs1`</td>
+     <td>`funct3`</td>
+     <td>`rd</td>
+     <td>`opcode`</td>
+  </tr>
+</table>
 
-- funct7 (bits 31-25): A 7-bit function code that helps specify the exact operation (e.g., add, sub).
-- rs2 (bits 24-20): A 5-bit field representing the second source register.
-- rs1 (bits 19-15): A 5-bit field representing the first source register.
-- funct3 (bits 14-12): A 3-bit function code that further specifies the operation, often used in combination with funct7.
-- rd (bits 11-7): A 5-bit field representing the destination register where the result of the operation is stored.
-- opcode (bits 6-0): A 7-bit operation code that specifies the type of instruction (e.g., arithmetic, logical, etc.).
+- funct7: A 7-bit function code that helps specify the exact operation (e.g., add, sub).
+- rs2: A 5-bit field representing the second source register.
+- rs1: A 5-bit field representing the first source register.
+- funct3: A 3-bit function code that further specifies the operation, often used in combination with funct7.
+- rd: A 5-bit field representing the destination register where the result of the operation is stored.
+- opcode: A 7-bit operation code that specifies the type of instruction. Here, R format: 0110011
 
 ### I-Format
 
- 31         20 19   15 14      12 11    7 6        0 
-|-------------|-------|----------|-------|----------|
-| `imm[11:0]` | `rs1` | `funct3` | `rd`  | `opcode` |
+<table>
+  <tr>
+    <th>31-20</th>
+    <th>19-15</th>
+    <th>14-12</th>
+    <th>11-7</th>
+    <th>6-0</th>
+  </tr>
+  <tr>
+     <td>`Immediate[11:0]`</td>
+     <td>`rs1`</td>
+     <td>`funct3`</td>
+     <td>`rd</td>
+     <td>`opcode`</td>
+  </tr>
+</table>
 
+- imm[11:0]: A 12-bit immediate value that is sign-extended to the register width.
+- rs1: A 5-bit field representing the first source register.
+- funct3: A 3-bit function code that specifies the operation.
+- rd: A 5-bit field representing the destination register.
+- opcode: A 7-bit operation code that specifies the type of instruction. Here, I format: 0010011 , 1100111[Only for jalr]
+
+### S-Format
