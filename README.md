@@ -6,7 +6,7 @@ The RISC-V Assembler is a C-based program that translates RISC-V assembly langua
 ## What the Application Does
 The assembler takes RISC-V assembly instructions as input and converts them into machine code format. It supports a range of RISC-V instructions, including:
 
-R-type instructions (add, sub, and, or, xor, sll, srl, sra)
+R-type instructions (add, sub, and, or, xor, sll, srl, sra) \n
 I-type instructions (addi, andi, ori, xori, slli, srli, srai, ld, lw, lh, lb, lwu, lhu, lbu)
 S-type instructions (sd, sw, sh, sb, jalr)
 B-type instructions (beq, bne, blt, bge, bltu, bgeu)
