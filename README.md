@@ -64,13 +64,8 @@ Upon successful execution of the program, you will get an output file named outp
 - Assembly Language: Knowledge of writing and understanding assembly language instructions.
 - Binary and Hexadecimal Notation: Ability to work with and convert between binary, hexadecimal, and decimal systems.
 - Basic C Programming: Proficiency in C programming for implementing the assembler logic.
-- Instruction Formats: Understanding the various instruction formats and their encodings, such as:
-            - R-type: Register-based instructions
-            - I-type: Immediate value instructions
-            - S-type: Store instructions
-            - B-type: Branch instructions
-            - J-type: Jump instructions
-            - U-type: Upper Immediate instructions
+- Instruction Formats: Understanding the various instruction formats and their encodings.
+  The RISCV Instruction Set for each format is given below for reference.
 
 ### R-Format
 
