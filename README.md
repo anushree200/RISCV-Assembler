@@ -83,7 +83,7 @@ Upon successful execution of the program, you will get an output file named outp
      <td>`rs2`</td>
      <td>`rs1`</td>
      <td>`funct3`</td>
-     <td>`rd</td>
+     <td>`rd`</td>
      <td>`opcode`</td>
   </tr>
 </table>
@@ -109,7 +109,7 @@ Upon successful execution of the program, you will get an output file named outp
      <td>`imm[11:0]`</td>
      <td>`rs1`</td>
      <td>`funct3`</td>
-     <td>`rd</td>
+     <td>`rd`</td>
      <td>`opcode`</td>
   </tr>
 </table>
