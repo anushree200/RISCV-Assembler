@@ -82,7 +82,6 @@ This project is structured into several key components to ensure clarity and mod
 The main function serves as the entry point, which opens the process_instr function which reads the input assembly file line by line.
 Each line is then parsed to identify the instruction format or a labelled instruction.
 Based on the format, the relevant function is called to handle the encoding process. For example, process_instructionR() is for handling the R-Format instructions.
-
 Additionally, error checking is integrated at each step to ensure that the input follows the correct format, and the encoded machine code is then written to the output file.
 
 ## Executing the program
