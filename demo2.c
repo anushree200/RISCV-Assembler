@@ -122,7 +122,7 @@ void process_instr(FILE *file)
                         printf("Error opening file for appending!\n");
                         return;
                     }
-                    fprintf(fileo, "This is a multiple label error for label %s\n", label);
+                    fprintf(fileo, "This is a multiple label error for label %s in line number %d\n", label,n);
                     labelerror = true;
                     fclose(fileo);
                     continue;
@@ -131,7 +131,6 @@ void process_instr(FILE *file)
         }
         if (labelerror)
         {
-            curaddr += 4;
             continue;
         }
         sscanf(line, "%s", instruction);
