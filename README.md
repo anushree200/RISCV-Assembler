@@ -85,16 +85,28 @@ Based on the format, the relevant function is called to handle the encoding proc
 Additionally, error checking is integrated at each step to ensure that the input follows the correct format, and the encoded machine code is then written to the output file.
 
 ## Executing the program
-In the command prompt, type the a.out or the executable file name to execute this program. 
+In the command prompt, type 
+`gcc demo2.c -o out`
+and then
+`out`
 Upon successful execution of the program, you will get an output file named output.hex with the translated machine codes in hexadecimal format.
 
-## Prerequisite Knowledge
-- Instruction Set Architecture (ISA): Familiarity with RISC-V or the specific ISA you're working with.
+## Prerequisite Theory
+- Instruction Set Architecture (ISA): Familiarity with RISC-V ISA you're working with in this project.
 - Assembly Language: Knowledge of writing and understanding assembly language instructions.
 - Binary and Hexadecimal Notation: Ability to work with and convert between binary, hexadecimal, and decimal systems.
 - Basic C Programming: Proficiency in C programming for implementing the assembler logic.
 - Instruction Formats: Understanding the various instruction formats and their encodings.
   The RISCV Instruction Set for each format is given below for reference.
+
+### Assembly Language
+An assembly language is a low-level programming language for a computer, or other programmable device, in which there is a very strong (generally one-to-one) correspondence between the language and the architecture's machine code instructions. Each assembly language is specific to a particular computer architecture, in contrast to most high-level programming languages, which are generally portable across multiple architectures, but require interpreting or compiling. Assembly language uses a mnemonic to represent each low-level machine operation or opcode. Some op-codes require one or more operands as part of the instruction.
+
+### Assembler
+Assembly language is converted into executable machine code by a utility program referred to as an assembler; the conversion process is referred to as assembly, or assembling the code.
+
+
+An assembler is a translator that translates an assembler program into a conventional machine language program. Basically, the assembler goes through the program one line at a time, and generates machine code for that instruction. Then the assembler proceeds to the next instruction. In this way, the entire machine code program is created.
 
 ### R-Format
 
