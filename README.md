@@ -85,7 +85,9 @@ Add the gcc to the windows environment variable so that the gcc command can be i
 
 
 ## Contents
-- demo2.c : The main assembler code responsible for translating assembly instructions into machine code.
+- final.c : The main assembler code responsible for translating assembly instructions into machine code.
+- instr_R/instr_IS/instr_SRAI_IS/instr_B/instr_J/instr_U.h : Header files for the each format process instruction
+- instr_R/instr_IS/instr_SRAI_IS/instr_B/instr_J/instr_U.c : Contains the function for processing each format
 - input.s: A sample file containing RISC-V assembly instructions to be processed by the assembler.
 - output.hex: The output file that contains the translated machine code in hexadecimal format.
 To know the details of each function, variables and the flow of code execution, refer the report.pdf
