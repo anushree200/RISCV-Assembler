@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "instr_U.h"
+#include "register_no.h"
 
 void process_instructionU(char *line, int n)
 {
