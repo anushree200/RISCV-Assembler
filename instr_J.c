@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "instr_J.h"
+#include "register_no.h"
 
 void process_instructionJ(char *line, unsigned int opcode, int labeladd, int curaddr, int n)
 {
