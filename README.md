@@ -51,9 +51,9 @@ Actually this program will not consume much of memory and the harddisk space.
 
 
 ## Operating System and its requirements
-This code can run in any operating system as long as that operating system has a C compiler installed. 
-The gcc compiler was used during the development phase. 
-The RIPES Simulator can be installed to check the accuracy of the translated machine code.
+This code can run in any operating system as long as that operating system has a C compiler installed.
+- The gcc compiler was used during the development phase.
+- The RIPES Simulator can be installed to check the accuracy of the translated machine code.
 
 
 
