@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "instr_SRAI_IS.h"
+#include "register_no.h"
 
 void SRAI_IS(char *line, unsigned int funct3, unsigned int opcode, int n)
 {
