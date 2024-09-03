@@ -109,6 +109,7 @@ and then
 `out`
 Upon successful execution of the program, you will get an output file named output.hex with the translated machine codes in hexadecimal format.
 
+Use makefile to compile the project like this:
 
 
 ## Prerequisite Theory
