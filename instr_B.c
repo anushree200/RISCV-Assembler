@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "instr_B.h"
+#include "register_no.h"
 
 void process_instructionB(char *line, unsigned int funct3, int labeladd, int curaddr, int n)
 {
