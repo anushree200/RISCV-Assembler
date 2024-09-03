@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "instr_IS.h"
+#include "register_no.h"
 
 void process_instructionIS(char *line, unsigned int funct3, unsigned int opcode, int n)
 {
