@@ -103,10 +103,11 @@ Additionally, error checking is integrated at each step to ensure that the input
 
 
 ## Executing the program
-In the command prompt, type 
+In the command prompt, type
 `gcc demo2.c -o out`
 and then
 `out`
+
 Upon successful execution of the program, you will get an output file named output.hex with the translated machine codes in hexadecimal format.
 
 Use makefile to compile the project like this:
