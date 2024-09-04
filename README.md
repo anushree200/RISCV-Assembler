@@ -106,9 +106,13 @@ Additionally, error checking is integrated at each step to ensure that the input
 
 
 ## Executing the program
-- To compile and run your program, you typically enter the following command in the command prompt:
+
+To compile and run your program, you typically enter the following command in the command prompt:
+
 `gcc final.c instr_R.c instr_IS.c instr_SRAI_IS.c instr_B.c instr_U.c instr_J.c register_no.c -o out`
+
 and then, run the program with:
+
 `out`
 
 Upon successful execution of the program, you will get an output file named output.hex with the translated machine codes in hexadecimal format.
