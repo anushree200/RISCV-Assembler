@@ -88,6 +88,7 @@ Add the gcc to the windows environment variable so that the gcc command can be i
 - final.c : The main assembler code responsible for translating assembly instructions into machine code.
 - instr_R/instr_IS/instr_SRAI_IS/instr_B/instr_J/instr_U.h : Header files for the each format process instruction
 - instr_R/instr_IS/instr_SRAI_IS/instr_B/instr_J/instr_U.c : Contains the function for processing each format
+- register_no.h and register_no.c : Its the header and function containing file respectively for getting the source and destination register numbers from the string type and also from the alias name.
 - input.s: A sample file containing RISC-V assembly instructions to be processed by the assembler.
 - output.hex: The output file that contains the translated machine code in hexadecimal format.
 To know the details of each function, variables and the flow of code execution, refer the report.pdf
@@ -105,15 +106,29 @@ Additionally, error checking is integrated at each step to ensure that the input
 
 
 ## Executing the program
-In the command prompt, type
-`gcc demo2.c -o out`
-and then
+- To compile and run your program, you typically enter the following command in the command prompt:
+`gcc final.c instr_R.c instr_IS.c instr_SRAI_IS.c instr_B.c instr_U.c instr_J.c register_no.c -o out`
+and then, run the program with:
 `out`
 
 Upon successful execution of the program, you will get an output file named output.hex with the translated machine codes in hexadecimal format.
+But it obviously seems a long command as there are many source files to be executed at the same time. So here is a better option.
 
-Use makefile to compile the project like this:
+### Creating a Makefile 
+- Instead of typing a long command every time, you can use a Makefile to simplify the compilation process. A Makefile automates the build process, especially useful when dealing with multiple source files.
 
+Create a `Makefile` in your project directory with the following content:
+
+`final:
+<tab>gcc final.c instr_R.c instr_IS.c instr_SRAI_IS.c instr_B.c instr_U.c instr_J.c register_no.c -o out`
+
+Then:
+- Save the Makefile in the same directory as your source files.
+- Open a terminal in UBUNTU.
+- Navigate to your project directory.
+- Type `make` and press Enter. This will compile your project.
+  Then you can type `./out`
+Upon successful execution of the program, you will get an output file named output.hex with the translated machine codes in hexadecimal format.
 
 ## Prerequisite Theory
 - Instruction Set Architecture (ISA): Familiarity with RISC-V ISA you're working with in this project.
