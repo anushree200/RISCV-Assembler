@@ -109,6 +109,7 @@ Additionally, error checking is integrated at each step to ensure that the input
 
 
 
+
 ## Executing the program
 
 To compile and run your program, you typically enter the following command in the command prompt:
@@ -137,6 +138,8 @@ Then:
 - Type `make` and press Enter. This will compile your project.
   Then you can type `./out`
 Upon successful execution of the program, you will get an output file named output.hex with the translated machine codes in hexadecimal format.
+
+
 
 ## Prerequisite Theory
 - Instruction Set Architecture (ISA): Familiarity with RISC-V ISA you're working with in this project.
