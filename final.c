@@ -113,7 +113,6 @@ void process_instr(FILE *file)
         {
             curaddr += 4;
         }
-        printf(" %d%s ", curaddr, instruction);
 
         if (strchr(instruction, ':'))
         {
@@ -140,7 +139,6 @@ void process_instr(FILE *file)
             continue;
         }
         sscanf(line, "%s", instruction);
-        printf(" %d%s ", curaddr, instruction);
         if (strcmp(instruction, "sra") == 0)
         {
             process_instructionR(line, 0b101, 0b0100000, n); // funct3 for SRA, funct7 for SRA
@@ -307,7 +305,6 @@ void process_instr(FILE *file)
         {
             printf("Invalid Instruction, in line no. %d", n);
         }
-        printf(" %d%s ", curaddr, instruction);
         n += 1;
     }
 }
