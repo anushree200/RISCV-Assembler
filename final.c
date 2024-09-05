@@ -4,7 +4,6 @@
 #include <stdbool.h>
 #include "instr_R.h"
 #include "instr_IS.h"
-#include "instr_SRAI_IS.h"
 #include "instr_U.h"
 #include "instr_B.h"
 #include "instr_J.h"
