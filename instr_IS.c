@@ -14,13 +14,13 @@ void process_instructionIS(char *line, unsigned int funct3, unsigned int opcode,
         printf("Error opening file for appending!\n");
         return;
     }
-    char reg1[10], reg2[10], imm[10];
+    char reg1[10], reg2[10];
     char extra[10];
     unsigned int instruction;
     int immI;
     if (opcode == 0b0010011)
     {
-        int operand_count = sscanf(line, "%*s %s %s %s %s", reg1, reg2, imm, extra);
+        int operand_count = sscanf(line, "%*s %s %s %d %s", reg1, reg2, &immI, extra);
         if (operand_count > 3)
         {
             fprintf(fileo, "Error: Instruction has too many operands. Expected at most 3, but got %d in line %d\n", operand_count, n);
@@ -43,7 +43,6 @@ void process_instructionIS(char *line, unsigned int funct3, unsigned int opcode,
         }
         reg1[strcspn(reg1, ",")] = '\0';
         reg2[strcspn(reg2, ",")] = '\0';
-        immI = strtol(imm, NULL, 0);
         immI &= 0xFFF;
         int rd = get_register_number(reg1);
         int rs1 = get_register_number(reg2);
