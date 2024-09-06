@@ -148,9 +148,9 @@ void SRAI_IS(char *line, unsigned int funct3, unsigned int opcode, int n)
     }
     int rd = get_register_number(reg1);
     int rs1 = get_register_number(reg2);
-    unsigned int shamt = immI & 0x1F;    // Lower 5 bits for shift amount
-    unsigned int shamt_high = 0b0100000; // Set the upper bits to indicate SRAI
-    instruction = (shamt_high << 25) | (shamt << 20) | (rs1 << 15) | (funct3 << 12) | (rd << 7) | opcode;
+    unsigned int lowshif = immI & 0x1F;    // Lower 5 bits for shift amount
+    unsigned int highshif = 0b0100000; // Set the upper bits to indicate SRAI
+    instruction = (highshif << 25) | (lowshif << 20) | (rs1 << 15) | (funct3 << 12) | (rd << 7) | opcode;
     fprintf(fileo, "%08X\n", instruction);
     fclose(fileo);
 }
