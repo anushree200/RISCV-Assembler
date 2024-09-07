@@ -117,11 +117,11 @@ void SRAI_IS(char *line, unsigned int funct3, unsigned int opcode, int n)
         printf("Error opening file for appending!\n");
         return;
     }
-    char reg1[10], reg2[10], imm[10];
+    char reg1[10], reg2[10];
     char extra[10];
     unsigned int instruction;
     int immI;
-    int operand_count = sscanf(line, "%*s %s %s %s %s", reg1, reg2, imm, extra);
+    int operand_count = sscanf(line, "%*s %s %s %d %s", reg1, reg2, &immI, extra);
     if (operand_count > 3)
     {
         fprintf(fileo, "Error: Instruction has too many operands. Expected at most 3, but got %d in line %d\n", operand_count, n);
@@ -138,7 +138,6 @@ void SRAI_IS(char *line, unsigned int funct3, unsigned int opcode, int n)
     }
     reg1[strcspn(reg1, ",")] = '\0';
     reg2[strcspn(reg2, ",")] = '\0';
-    immI = strtol(imm, NULL, 0);
     if (immI < 0 || immI > 31)
     {
         fprintf(fileo, "Error: Immediate value %d for SRAI is out of range (0-31) in line %d\n", immI, n);
