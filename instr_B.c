@@ -50,7 +50,6 @@ void process_instructionB(char *line, unsigned int funct3, int labeladd, int cur
     unsigned int imm_12 = (calculatedOffset >> 12) & 0x1;   // imm[12]
     unsigned int imm_10_5 = (calculatedOffset >> 5) & 0x3F; // imm[10:5]
     unsigned int imm_4_1 = (calculatedOffset << 1) & 0xF;   // 4 >> 1 gives 2
-                                                            // imm[4:1]
     unsigned int imm_11 = (calculatedOffset >> 11) & 0x1;   // imm[11]
 
     // Construct the instruction
