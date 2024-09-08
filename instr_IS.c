@@ -45,6 +45,11 @@ void process_instructionIS(char *line, unsigned int funct3, unsigned int opcode,
         immI &= 0xFFF;
         int rd = get_register_number(reg1);
         int rs1 = get_register_number(reg2);
+        if(rs1 == -1 || rd == -1){
+            fprintf(fileo, "Invalid Register No.");
+            fclose(fileo);
+            return;
+        }
         instruction = (immI << 20) | (rs1 << 15) | (funct3 << 12) | (rd << 7) | opcode;
     }
     else if (opcode == 0b0000011)
