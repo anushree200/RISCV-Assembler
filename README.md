@@ -11,9 +11,9 @@ This file has been divided into the following sections for easy reference:
 - Installation of RIPES Simulator
 - Installation of the C compiler
 - Contents of the folder
-- About the program
+- About the code
 - Executing the program
-- Prerequisites
+- Prerequisite theory
 - Getting Help
 
 
@@ -84,7 +84,7 @@ Add the gcc to the windows environment variable so that the gcc command can be i
 
 
 
-## Contents
+## Contents of the folder
 - final.c : The main assembler code responsible for translating assembly instructions into machine code.
 - instr_R/instr_IS/instr_SRAI_IS/instr_B/instr_J/instr_U.h : Header files for the each format process instruction
 - instr_R/instr_IS/instr_SRAI_IS/instr_B/instr_J/instr_U.c : Contains the function for processing each format
@@ -122,6 +122,7 @@ and then, run the program with:
 
 Upon successful execution of the program, you will get an output file named output.hex with the translated machine codes in hexadecimal format.
 But it obviously seems a long command as there are many source files to be executed at the same time. So here is a better option.
+
 
 ### Creating a Makefile 
 - Instead of typing a long command every time, you can use a Makefile to simplify the compilation process. A Makefile automates the build process, especially useful when dealing with multiple source files.
