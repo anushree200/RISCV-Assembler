@@ -6,7 +6,7 @@
 #include "register_no.h"
 
 void process_instructionJ(char *line, unsigned int opcode, int labeladd, int curaddr, int n)
-{
+{ // file opening
     FILE *fileo = fopen("output.hex", "a");
     if (fileo == NULL)
     {
@@ -22,8 +22,6 @@ void process_instructionJ(char *line, unsigned int opcode, int labeladd, int cur
         fclose(fileo);
         return;
     }
-
-    // Check for too few operands
     if (operand_count < 2)
     {
         fprintf(fileo, "Error: Instruction parsing failed, expected 2 operands but got %d in line %d\n", operand_count, n);
@@ -43,9 +41,8 @@ void process_instructionJ(char *line, unsigned int opcode, int labeladd, int cur
         fclose(fileo);
         return;
     }
-
-    int offset = (labeladd - curaddr); // Adjust for instruction size
-    // Construct the instruction
+//offset value and error handling
+    int offset = (labeladd - curaddr);
     if (offset < -2097152 || offset > 2097151)
     {
         fprintf(fileo, "Error: J-Type immediate value out of range: %d in line %d\n", offset, n);
@@ -53,11 +50,11 @@ void process_instructionJ(char *line, unsigned int opcode, int labeladd, int cur
         return;
     }
 
-    unsigned int imm_20 = (offset >> 20) & 0x1;     // imm[20]
-    unsigned int imm_19_12 = (offset >> 12) & 0xFF; // imm[19:12]
-    unsigned int imm_11 = (offset >> 11) & 0x1;     // imm[11]
-    unsigned int imm_10_1 = (offset >> 1) & 0x3FF;  // imm[10:1]
-
+    unsigned int imm_20 = (offset >> 20) & 0x1;
+    unsigned int imm_19_12 = (offset >> 12) & 0xFF;
+    unsigned int imm_11 = (offset >> 11) & 0x1;
+    unsigned int imm_10_1 = (offset >> 1) & 0x3FF;  
+//constructing instruction
     unsigned int instruction = (imm_20 << 31) | (imm_19_12 << 12) | (imm_11 << 20) |
                                (imm_10_1 << 21) | (rd << 7) | opcode;
 
