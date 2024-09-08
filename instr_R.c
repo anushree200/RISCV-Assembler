@@ -39,6 +39,11 @@ void process_instructionR(char *line, unsigned int funct3, unsigned int funct7, 
     int rd = get_register_number(reg1);
     int rs1 = get_register_number(reg2);
     int rs2 = get_register_number(reg3);
+    if(rs1 == -1 || rd == -1 || rs2 == -1){
+            fprintf(fileo, "Invalid Register No.");
+            fclose(fileo);
+            return;
+        }
     unsigned int opcode = 0b0110011;
     unsigned int instruction = (funct7 << 25) | (rs2 << 20) | (rs1 << 15) | (funct3 << 12) | (rd << 7) | opcode;
 
