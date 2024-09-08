@@ -17,9 +17,11 @@ void process_instructionIS(char *line, unsigned int funct3, unsigned int opcode,
     char extra[10];
     unsigned int instruction;
     int immI;
+    //immediate instructions
     if (opcode == 0b0010011)
     {
         int operand_count = sscanf(line, "%*s %s %s %d %s", reg1, reg2, &immI, extra);
+        //check for too many operands
         if (operand_count > 3)
         {
             fprintf(fileo, "Error: Instruction has too many operands. Expected at most 3, but got %d in line %d\n", operand_count, n);
@@ -50,8 +52,10 @@ void process_instructionIS(char *line, unsigned int funct3, unsigned int opcode,
             fclose(fileo);
             return;
         }
+        //construction instructions
         instruction = (immI << 20) | (rs1 << 15) | (funct3 << 12) | (rd << 7) | opcode;
     }
+    //load instructions
     else if (opcode == 0b0000011)
     {
         int operand_count = sscanf(line, "%*s %[^,], %d(%[^)]) %s", reg1, &immI, reg2, extra);
@@ -61,8 +65,6 @@ void process_instructionIS(char *line, unsigned int funct3, unsigned int opcode,
             fclose(fileo);
             return;
         }
-
-        // Check for too few operands
         if (operand_count < 3)
         {
             fprintf(fileo, "Error: Instruction parsing failed, expected 3 operands but got %d in line %d\n", operand_count, n);
@@ -85,6 +87,7 @@ void process_instructionIS(char *line, unsigned int funct3, unsigned int opcode,
         }
         instruction = (immI << 20) | (rs1 << 15) | (funct3 << 12) | (rd << 7) | opcode;
     }
+    //store type instructions
     else if (opcode == 0b0100011)
     {
         int operand_count = sscanf(line, "%*s %[^,], %d(%[^)]) %s", reg2, &immI, reg1, extra);
@@ -94,8 +97,6 @@ void process_instructionIS(char *line, unsigned int funct3, unsigned int opcode,
             fclose(fileo);
             return;
         }
-
-        // Check for too few operands
         if (operand_count < 3)
         {
             fprintf(fileo, "Error: Instruction parsing failed, expected 3 operands but got %d in line %d\n", operand_count, n);
@@ -123,7 +124,7 @@ void process_instructionIS(char *line, unsigned int funct3, unsigned int opcode,
     fclose(fileo);
 }
 
-
+//for better understanding
 void SRAI_IS(char *line, unsigned int funct3, unsigned int opcode, int n)
 {
     FILE *fileo = fopen("output.hex", "a");
@@ -143,8 +144,6 @@ void SRAI_IS(char *line, unsigned int funct3, unsigned int opcode, int n)
         fclose(fileo);
         return;
     }
-
-    // Check for too few operands
     if (operand_count < 3)
     {
         fprintf(fileo, "Error: Instruction parsing failed, expected 3 operands but got %d in line %d\n", operand_count, n);
