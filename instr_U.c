@@ -23,8 +23,6 @@ void process_instructionU(char *line, int n)
         fclose(fileo);
         return;
     }
-
-    // Check for too few operands
     if (operand_count < 2)
     {
         fprintf(fileo, "Error: Instruction parsing failed, expected 2 operands but got %d in line %d\n", operand_count, n);
