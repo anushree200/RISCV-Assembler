@@ -78,6 +78,11 @@ void process_instructionIS(char *line, unsigned int funct3, unsigned int opcode,
         immI &= 0xFFF;
         int rd = get_register_number(reg1);
         int rs1 = get_register_number(reg2);
+        if(rs1 == -1 || rd == -1){
+            fprintf(fileo, "Invalid Register No.");
+            fclose(fileo);
+            return;
+        }
         instruction = (immI << 20) | (rs1 << 15) | (funct3 << 12) | (rd << 7) | opcode;
     }
     else if (opcode == 0b0100011)
@@ -107,6 +112,11 @@ void process_instructionIS(char *line, unsigned int funct3, unsigned int opcode,
         int imm_low = immI & 0x1F;
         int rs1 = get_register_number(reg1);
         int rs2 = get_register_number(reg2);
+        if(rs1 == -1 || rs2 == -1){
+            fprintf(fileo, "Invalid Register No.");
+            fclose(fileo);
+            return;
+        }
         instruction = (imm_high << 25) | (rs2 << 20) | (rs1 << 15) | (funct3 << 12) | (imm_low << 7) | opcode;
     }
     fprintf(fileo, "%08X\n", instruction);
@@ -151,6 +161,11 @@ void SRAI_IS(char *line, unsigned int funct3, unsigned int opcode, int n)
     }
     int rd = get_register_number(reg1);
     int rs1 = get_register_number(reg2);
+    if(rs1 == -1 || rd == -1){
+            fprintf(fileo, "Invalid Register No.");
+            fclose(fileo);
+            return;
+        }
     unsigned int lowshif = immI & 0x1F;    // Lower 5 bits for shift amount
     unsigned int highshif = 0b0100000; // Set the upper bits to indicate SRAI
     instruction = (highshif << 25) | (lowshif << 20) | (rs1 << 15) | (funct3 << 12) | (rd << 7) | opcode;
