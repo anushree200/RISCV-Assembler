@@ -7,6 +7,7 @@
 
 void process_instructionB(char *line, unsigned int funct3, int labeladd, int curaddr, int n)
 {
+    //file opening
     FILE *fileo = fopen("output.hex", "a");
     if (fileo == NULL)
     {
@@ -16,6 +17,7 @@ void process_instructionB(char *line, unsigned int funct3, int labeladd, int cur
     char reg1[10], reg2[10], label[50];
     char extra[10];
     int operand_count = sscanf(line, "%*s %s %s %s %s", reg1, reg2, label, extra);
+    //Check for too many operands
     if (operand_count > 3)
     {
         fprintf(fileo, "Error: Instruction has too many operands. Expected at most 3, but got %d in line %d\n", operand_count, n);
@@ -34,17 +36,20 @@ void process_instructionB(char *line, unsigned int funct3, int labeladd, int cur
     reg2[strcspn(reg2, ",")] = '\0';
     int rs1 = get_register_number(reg1);
     int rs2 = get_register_number(reg2);
+    //not valid reg no.
     if(rs1 == -1 || rs2 == -1){
         fprintf(fileo, "Invalid Register No.");
         fclose(fileo);
         return;
     }
+    //not valid address
     if (labeladd == -1)
     {
         fprintf(fileo, "Error: Undefined label %s\n", label);
         fclose(fileo);
         return;
     }
+    //offset with error handling
     int calculatedOffset = (labeladd - curaddr) / 4;
     if (calculatedOffset < -2048 || calculatedOffset > 2047)
     {
@@ -52,10 +57,11 @@ void process_instructionB(char *line, unsigned int funct3, int labeladd, int cur
         fclose(fileo);
         return;
     }
-    unsigned int imm_12 = (calculatedOffset >> 12) & 0x1;   // imm[12]
-    unsigned int imm_10_5 = (calculatedOffset >> 5) & 0x3F; // imm[10:5]
-    unsigned int imm_4_1 = (calculatedOffset << 1) & 0xF;   // 4 >> 1 gives 2
-    unsigned int imm_11 = (calculatedOffset >> 11) & 0x1;   // imm[11]
+    //immediate values using bitwise shift
+    unsigned int imm_12 = (calculatedOffset >> 12) & 0x1;
+    unsigned int imm_10_5 = (calculatedOffset >> 5) & 0x3F;
+    unsigned int imm_4_1 = (calculatedOffset << 1) & 0xF;  
+    unsigned int imm_11 = (calculatedOffset >> 11) & 0x1;   
 
     // Construct the instruction
     unsigned int instruction = (imm_12 << 31) | (imm_11 << 7) |
