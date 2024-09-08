@@ -73,8 +73,6 @@ int get_register_number(const char *reg)
         {"a6", 16},
         {"a7", 17},
     };
-
-    // Calculate the size of the reg_map array
     size_t num_regs = sizeof(reg_map) / sizeof(reg_map[0]);
 
     // Loop through the register map to find a match
@@ -85,5 +83,5 @@ int get_register_number(const char *reg)
             return reg_map[i].number; // Return the corresponding register number
         }
     }
-    return -1; // Error: invalid register
+    return -1; 
 }
