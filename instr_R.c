@@ -45,6 +45,7 @@ void process_instructionR(char *line, unsigned int funct3, unsigned int funct7, 
             return;
         }
     unsigned int opcode = 0b0110011;
+    //constructing instruction
     unsigned int instruction = (funct7 << 25) | (rs2 << 20) | (rs1 << 15) | (funct3 << 12) | (rd << 7) | opcode;
 
     fprintf(fileo, "%08X\n", instruction);
