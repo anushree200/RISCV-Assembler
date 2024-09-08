@@ -135,8 +135,9 @@ But it obviously seems a long command as there are many source files to be execu
 
 Create a `Makefile` in your project directory with the following content:
 
-`final:
-<tab>gcc final.c instr_R.c instr_IS.c instr_SRAI_IS.c instr_B.c instr_U.c instr_J.c register_no.c -o out`
+`final:`
+
+`<tab>gcc final.c instr_R.c instr_IS.c instr_SRAI_IS.c instr_B.c instr_U.c instr_J.c register_no.c -o out`
 
 Then:
 - Save the Makefile in the same directory as your source files.
