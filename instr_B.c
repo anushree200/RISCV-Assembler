@@ -34,6 +34,11 @@ void process_instructionB(char *line, unsigned int funct3, int labeladd, int cur
     reg2[strcspn(reg2, ",")] = '\0';
     int rs1 = get_register_number(reg1);
     int rs2 = get_register_number(reg2);
+    if(rs1 == -1 || rs2 == -1){
+        fprintf(fileo, "Invalid Register No.");
+        fclose(fileo);
+        return;
+    }
     if (labeladd == -1)
     {
         fprintf(fileo, "Error: Undefined label %s\n", label);
