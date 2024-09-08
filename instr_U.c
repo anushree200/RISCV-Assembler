@@ -34,6 +34,11 @@ void process_instructionU(char *line, int n)
     reg[strcspn(reg, ",")] = '\0';
 
     int rd = get_register_number(reg);
+    if(rd == -1){
+            fprintf(fileo, "Invalid Register No.");
+            fclose(fileo);
+            return;
+        }
     if (imm > 0xFFFFF)
     {
         fprintf(fileo, "Immediate value %u for %s is out of range\n", imm, line);
