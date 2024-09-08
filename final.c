@@ -58,7 +58,7 @@ int find_label_address(const char *label)
             return labels[i].address;
         }
     }
-    return -1; // Label not found
+    return -1; 
 }
 
 int main()
@@ -98,7 +98,7 @@ void process_instr(FILE *file)
         {
             add_label(found_label, curaddr);
         }
-        curaddr += 4; // Increment address for each instruction
+        curaddr += 4;
     }
 
     rewind(file);
@@ -141,27 +141,27 @@ void process_instr(FILE *file)
         sscanf(line, "%s", instruction);
         if (strcmp(instruction, "sra") == 0)
         {
-            process_instructionR(line, 0b101, 0b0100000, n); // funct3 for SRA, funct7 for SRA
+            process_instructionR(line, 0b101, 0b0100000, n);
         }
         else if (strcmp(instruction, "sub") == 0)
         {
-            process_instructionR(line, 0b000, 0b0100000, n); // funct3 for SUB
+            process_instructionR(line, 0b000, 0b0100000, n);
         }
         else if (strcmp(instruction, "or") == 0)
         {
-            process_instructionR(line, 0b110, 0b0000000, n); // funct3 for OR
+            process_instructionR(line, 0b110, 0b0000000, n);
         }
         else if (strcmp(instruction, "sll") == 0)
         {
-            process_instructionR(line, 0b001, 0b0000000, n); // funct3 for SLL
+            process_instructionR(line, 0b001, 0b0000000, n);
         }
         else if (strcmp(instruction, "and") == 0)
         {
-            process_instructionR(line, 0b111, 0b0000000, n); // funct3 for AND
+            process_instructionR(line, 0b111, 0b0000000, n);
         }
         else if (strcmp(instruction, "srl") == 0)
         {
-            process_instructionR(line, 0b101, 0b0000000, n); // funct3 for SRL
+            process_instructionR(line, 0b101, 0b0000000, n);
         }
         else if (strcmp(instruction, "add") == 0)
         {
